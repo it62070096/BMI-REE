@@ -44,5 +44,32 @@ def tdee():
 		print("Please answer the right choice 1,2,3,4 or 5")
 		tdee()
 	print("Your TDEE is %.2f" %tdee)
-	
-find_bmi():
+
+
+def find_ree():
+    """REE (Resting Energy Expenditure)"""
+    print("-----------------------")
+    print("This is REE Calculater")
+    print("-----------------------")
+
+    height = float(input("Enter your height : "))
+        #input height as centimeter
+    weight = float(input("Enter your weight : "))
+        #input as kilogram
+    age = int(input("Enter your Age : "))
+        #input your age
+    ree = 0
+    gender = input("What is your gender Male or Female : ")
+    gender_1 = gender.title()
+
+    if gender_1 == "Male":
+        ree = (10 * weight) + (6.25 * height) - (5 * age) + 5
+        print("%s %.2f Kilocalorie"%(gender_1, ree))
+
+    elif gender_1 == "Female":
+        ree = (10 * weight) + (6.25 * height) - (5 * age) - 161
+        print("%s %.2f kilocalorie"%(gender_1, ree))
+
+find_bmi()
+tdee()
+find_ree()
