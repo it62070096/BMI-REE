@@ -2,7 +2,7 @@ def menu():
     print("*********************")
     print("    MENU FUNCTION    ")
     print("*********************")
-    print("Number #1 = BMI Calculater\nNumber #2 = TDEE Calculater\nNumber #3 = REE Calculater")
+    print("Number #1 = BMI Calculater\nNumber #2 = TDEE Calculater\nNumber #3 = REE Calculater\nNumber #0 = Exit")
     number = int(input("Please select number : "))
     if number == 1:
         find_bmi()
@@ -10,6 +10,9 @@ def menu():
         find_tdee()
     elif number == 3:
         find_ree()
+    elif number == 0:
+        print("Exit...")
+        print("Good Bye~")
     else:
         print("Again Please")
         menu()
