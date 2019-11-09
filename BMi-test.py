@@ -1,3 +1,18 @@
+def menu():
+    print("*********************")
+    print("    MENU FUNCTION    ")
+    print("*********************")
+    print("Number #1 = BMI Calculater\nNumber #2 = TDEE Calculater\nNumber #3 = REE Calculater")
+    number = int(input("Please select number : "))
+    if number == 1:
+        find_bmi()
+    elif number == 2:
+        find_tdee()
+    elif number == 3:
+        find_ree()
+    else:
+        print("Again Please")
+        menu()
 def find_bmi():
     """Find BMi"""
     print("**********************")
@@ -90,6 +105,4 @@ def find_ree():
         ree = (10 * weight) + (6.25 * height) - (5 * age) - 161
         print("%s %.2f kilocalorie"%(gender_1, ree))
 
-find_bmi()
-find_tdee()
-find_ree()
+menu()
