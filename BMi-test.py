@@ -11,6 +11,23 @@ def find_bmi():
     bmi = (weight / (height * height))
     print('Your BMI is %.2f' % bmi)
 
+    if bmi > 0 and bmi <= 18.5:
+        print('Your weight status is Underweight')
+
+    elif bmi > 18.5 and bmi <= 23:
+        print('Your weight status is Normal weight')
+
+    elif bmi > 23 and bmi <= 24.9:
+        print('Your weight status is Overweight')
+
+    elif bmi > 24.9 and bmi <= 30:
+        print('Your weight status is Obese')
+
+    else:
+        print('There is an error with you input')
+        print('Please check you have entered whole numbers\n'
+              'and decimals where asked.')
+
 def find_tdee():
     print("***********************")
     print("This is TDEE Calculater")
