@@ -1,20 +1,36 @@
 def menu():
-    print("*********************")
-    print("    MENU FUNCTION    ")
-    print("*********************")
-    print("Number #1 = BMI Calculater\nNumber #2 = TDEE Calculater\nNumber #3 = REE Calculater\nNumber #0 = Exit")
-    number = int(input("Please select number : "))
-    if number == 1:
-        find_bmi()
-    elif number == 2:
-        find_tdee()
-    elif number == 3:
-        find_ree()
-    elif number == 0:
-        print("Exit...")
-        print("Good Bye~")
+    print("***********************")
+    print("   ENTER INFORMATION   ")
+    print("***********************")
+    gender = input("What is your gender Male or Female : ")
+    if gender == "Male" or gender == "Female":
+         age = int(input("Enter your Age : "))
+         height = float(input("Enter your height : "))
+         weight = float(input("Enter your weight : "))
+         print()
+         print("*********************")
+         print("    MENU FUNCTION    ")
+         print("*********************")
+         print("Number #1 = BMI Calculater\nNumber #2 = TDEE Calculater\nNumber #3 = REE Calculater\nNumber #0 = Exit")
+         number = int(input("Please select number : "))
+         if number == 1:
+            find_bmi()
+         elif number == 2:
+            find_tdee()
+         elif number == 3:
+            find_ree()
+         elif number == 0:
+            print("Exit...")
+            print("Good Bye~")
+         else:
+            print()
+            print("Error : Please enter number 1 - 3")
+            print()
+            menu()
     else:
-        print("Again Please")
+        print()
+        print("Error : Please enter Male or Female.")
+        print()
         menu()
 def find_bmi():
     """Find BMi"""
