@@ -53,6 +53,26 @@ class page1(GridLayout):
         self.add_widget(self.hhh)
         self.add_widget(self.hhhtext)
         self.add_widget(self.next)
+
+    def change1(self, *args):
+        self.clear_widgets()
+        return self.page2()
+
+    def change2(self, *args):
+        self.clear_widgets()
+        return self.page1()
+    
+    def change3(self, *args):
+        self.clear_widgets()
+        return self.page3()
+
+    def change4(self, *args):
+        self.clear_widgets()
+        return self.page4()
+
+    def change5(self, *args):
+        self.clear_widgets()
+        return self.page3()
         
 class test(App):
     def build(self):
