@@ -1,4 +1,4 @@
-def menu():
+def menubmi():
     print("***********************")
     print("   ENTER INFORMATION   ")
     print("***********************")
@@ -124,4 +124,4 @@ def find_ree():
         ree = (10 * weight) + (6.25 * height) - (5 * age) - 161
         print("%s %.2f kilocalorie"%(gender_1, ree))
 
-menu()
+menubmi()
