@@ -73,7 +73,8 @@ class page1(GridLayout):
     def change5(self, *args):
         self.clear_widgets()
         return self.page3()
-        def page1(self):
+    
+    def page1(self):
         self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
         self.sex = TextInput(hint_text="male/female", size=(300,50), pos=(645,450))
         self.sextext = Label(text="เพศ", font_size=35, pos=(546, 430))
