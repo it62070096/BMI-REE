@@ -73,6 +73,30 @@ class page1(GridLayout):
     def change5(self, *args):
         self.clear_widgets()
         return self.page3()
+        def page1(self):
+        self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
+        self.sex = TextInput(hint_text="male/female", size=(300,50), pos=(645,450))
+        self.sextext = Label(text="เพศ", font_size=35, pos=(546, 430))
+        self.age = TextInput(size=(300,50), pos=(645, 380))
+        self.agetext = Label(text="อายุ", font_size=35, pos=(546, 360))
+        self.weight = TextInput(hint_text="kg.", size=(300,50), pos=(645, 310))
+        self.weighttext = Label(text="น้ำหนัก", font_size=35, pos=(530, 290))
+        self.hhh = TextInput(hint_text="cm.", size=(300,50), pos=(645, 240))
+        self.hhhtext = Label(text="ส่วนสูง", font_size=35, pos=(530, 220))
+        self.next = Button(text="Next", font_size=30, size=(100,50), pos=(1300,40), background_color=(3.0,1.0,1.0,1.0))
+        self.next.bind(on_press=self.change1)
+
+
+        self.add_widget(self.name)
+        self.add_widget(self.sex)
+        self.add_widget(self.sextext)
+        self.add_widget(self.age)
+        self.add_widget(self.agetext)
+        self.add_widget(self.weight)
+        self.add_widget(self.weighttext)
+        self.add_widget(self.hhh)
+        self.add_widget(self.hhhtext)
+        self.add_widget(self.next)
         
 class test(App):
     def build(self):
