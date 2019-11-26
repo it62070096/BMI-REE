@@ -98,7 +98,57 @@ class page1(GridLayout):
         self.add_widget(self.hhh)
         self.add_widget(self.hhhtext)
         self.add_widget(self.next)
-        
+
+    def calbmi(self, *args):
+        try:
+            weight = float(self.weight.text)
+            hhh = float(self.hhh.text)
+            result = weight/((hhh/100)**2)
+            result = "%.2f"%(result)
+            if self.sex.text == "male":
+                if float(result) < 19:
+                    result1 = Popup(title="BMI", content=Label(text=result+"  ผอม", size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                        size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
+                    result1.open()
+                elif 19 <= float(result) <= 24.9:
+                    result1 = Popup(title="BMI", content=Label(text=result+"  สมส่วน", size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                        size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
+                    result1.open()
+                elif 25 <= float(result) < 29.9:
+                    result1 = Popup(title="BMI", content=Label(text=result+"  น้ำหนักเกิน", size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                        size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
+                    result1.open()
+                else:
+                    result1 = Popup(title="BMI", content=Label(text=result+"  อ้วน", size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                        size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
+                    result1.open()
+            elif self.sex.text == "female":
+                if float(result) < 18:
+                    result1 = Popup(title="BMI", content=Label(text=result+"  ผอม", size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                        size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
+                    result1.open()
+                elif 18 <= float(result) <= 23.9:
+                    result1 = Popup(title="BMI", content=Label(text=result+"  สมส่วน", size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                        size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
+                    result1.open()
+                elif 24 <= float(result) < 29.9:
+                    result1 = Popup(title="BMI", content=Label(text=result+"  น้ำหนักเกิน", size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                        size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
+                    result1.open()
+                else:
+                    result1 = Popup(title="BMI", content=Label(text=result+"  อ้วน", size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                        size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
+                    result1.open()
+            else:
+                result1 = Popup(title="BMI", content=Label(text="ERROR", size=(100, 200)), size_hint_y=None, size_hint_x=None,\
+                    size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
+                result1.open()
+
+        except:
+            result1 = Popup(title="BMI", content=Label(text="ERROR", size=(100, 200)), size_hint_y=None, size_hint_x=None,\
+                size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
+            result1.open()
+
 class test(App):
     def build(self):
         return page1()
