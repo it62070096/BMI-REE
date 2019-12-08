@@ -344,6 +344,35 @@ class page1(GridLayout):
                 size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
             result1.open()
 
+    def caltdee5(self, *args):
+        try:
+            if self.sex.text == "male":
+                weight = float(self.weight.text)
+                hhh = float(self.hhh.text)
+                age = int(self.age.text)
+                result = ((10*weight) + (6.25*hhh) - (5*age) +5)*1.9
+                result = "%.2f"%result
+                result1 = Popup(title="REE & TDEE", content=Label(text=result, size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                    size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
+                result1.open()
+            elif self.sex.text == "female":
+                weight = float(self.weight.text)
+                hhh = float(self.hhh.text)
+                age = int(self.age.text)
+                result = ((10*weight) + (6.25*hhh) - (5*age) - 161)*1.9
+                result = "%.2f"%result
+                result1 = Popup(title="REE & TDEE", content=Label(text=result, size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                    size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
+                result1.open()
+            else:
+                result1 = Popup(title="BMI", content=Label(text="ERROR", size=(100, 200)), size_hint_y=None, size_hint_x=None,\
+                    size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
+                result1.open()
+        except:
+            result1 = Popup(title="REE", content=Label(text="ERROR", size=(100, 200)), size_hint_y=None, size_hint_x=None,\
+                size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
+            result1.open()
+            
 class test(App):
     def build(self):
         return page1()
