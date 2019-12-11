@@ -1,4 +1,3 @@
-import pygal
 from kivy.config import Config
 Config.set('graphics', 'width', '800')
 Config.set('graphics', 'height', '600')
@@ -9,6 +8,10 @@ from kivy.uix.button import Button
 from kivy.lang import Builder
 from kivy.uix.textinput import TextInput
 from kivy.uix.popup import Popup
+from kivy.uix.image import Image
+import matplotlib.pyplot as plt; plt.rcdefaults()
+import numpy as np
+import matplotlib.pyplot as plt
 Builder.load_string('''
 <GridLayout>:
     canvas.before:
@@ -27,6 +30,7 @@ Builder.load_string('''
 ''')
 class page1(GridLayout):
     def __init__(self):
+        """หน้าแรกของโปรแกรมเป็นส่วนของการกรอกประวัติส่วนตัว"""
         super().__init__()
         self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
         self.sex = TextInput(hint_text="male/female", size=(300,50), pos=(645,450))
@@ -39,8 +43,6 @@ class page1(GridLayout):
         self.hhhtext = Label(text="ส่วนสูง", font_size=35, pos=(530, 220))
         self.next = Button(text="Next", font_size=30, background_color=(3.0,1.0,1.0,1.0), size=(100,50), pos=(1300,40))
         self.next.bind(on_press=self.change1)
-
-
         self.add_widget(self.name)
         self.add_widget(self.sex)
         self.add_widget(self.sextext)
@@ -51,28 +53,35 @@ class page1(GridLayout):
         self.add_widget(self.hhh)
         self.add_widget(self.hhhtext)
         self.add_widget(self.next)
-
+ 
+    """def change แต่ละอันทำหน้าที่เปลี่ยนหน้าของโปรแกรม"""
     def change1(self, *args):
+        """เปลี่ยนหน้ากรอกประวัติส่วนตัวไปหน้าเลือกดู BMI กับ REE"""
         self.clear_widgets()
         return self.page2()
 
     def change2(self, *args):
+        """เปลี่ยนหน้าเลือกดูค่าคำนวนกลับมาหน้ากรอกประวัติ"""
         self.clear_widgets()
         return self.page1()
     
     def change3(self, *args):
+        """เปลี่ยนจากหน้าเลือกดูค่าคำนวนไปหน้าการคำนวน REE กรณีที่เลือกดูคำนวน REE"""
         self.clear_widgets()
         return self.page3()
 
     def change4(self, *args):
+        """เปลี่ยนไปหน้าคำนวนที่มีค่าของการคำนวน TDEE ด้วย"""
         self.clear_widgets()
         return self.page4()
 
     def change5(self, *args):
+        """ย้อนกลับไปหน้าที่มีตัวเลือกคำนวน TDEE"""
         self.clear_widgets()
         return self.page3()
     
     def page1(self):
+        """หน้ากรอกประวัติส่วนตัว"""
         self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
         self.sex = TextInput(hint_text="male/female", size=(300,50), pos=(645,450))
         self.sextext = Label(text="เพศ", font_size=35, pos=(546, 430))
@@ -84,8 +93,6 @@ class page1(GridLayout):
         self.hhhtext = Label(text="ส่วนสูง", font_size=35, pos=(530, 220))
         self.next = Button(text="Next", font_size=30, size=(100,50), pos=(1300,40), background_color=(3.0,1.0,1.0,1.0))
         self.next.bind(on_press=self.change1)
-
-
         self.add_widget(self.name)
         self.add_widget(self.sex)
         self.add_widget(self.sextext)
@@ -96,7 +103,9 @@ class page1(GridLayout):
         self.add_widget(self.hhh)
         self.add_widget(self.hhhtext)
         self.add_widget(self.next)
+    
     def page2(self):
+        """หน้าเลือกดูค่าคำนวนระหว่าง BMI หรือ REE"""
         self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
         self.add_widget(self.name)
         self.bmi = Button(text="BMI", size=(300,150), pos=(400,300), background_color=(3.0,1.0,1.0,1.0))
@@ -110,8 +119,10 @@ class page1(GridLayout):
         self.back.bind(on_press=self.change2)
         self.bmi.bind(on_press=self.calbmi)
         self.ree.bind(on_press=self.page3)
+        self.graph.bind(on_press=self.plotgraph)
 
     def page3(self, *args):
+        """หน้าเลือกคำนวนว่าจะให้แสดงผลค่าแค่ REE อย่างเดียวหรือต้องการคำนวนค่า TDEE"""
         self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
         self.add_widget(self.name)
         self.ree2 = Button(text="REE only", size=(300,150), pos=(400,300), background_color=(3.0,1.0,1.0,1.0))
@@ -125,6 +136,7 @@ class page1(GridLayout):
         self.tdee.bind(on_press=self.change4)
 
     def page4(self):
+        """หน้าคำนวน TDEE ตามเกณฑ์การออกกำลังกาย"""
         self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
         self.add_widget(self.name)
         self.name2 = Label(text="ความถี่การออกกำลังกาย", font_size=50, pos=(720,500), color=(0.9, 0.3, 0.2, 1.0))
@@ -141,15 +153,16 @@ class page1(GridLayout):
         self.add_widget(self.level5)
         self.back3 = Button(text="Back", font_size=30, size=(100,50), pos=(100,40), background_color=(3.0,1.0,1.0,1.0))
         self.add_widget(self.back3)
-
         self.level1.bind(on_press=self.caltdee1)
         self.level2.bind(on_press=self.caltdee2)
         self.level3.bind(on_press=self.caltdee3)
         self.level4.bind(on_press=self.caltdee4)
         self.level5.bind(on_press=self.caltdee5)
         self.back3.bind(on_press=self.change5)
-
+    
+    """Fucntion การคำนวนต่างๆ"""
     def calbmi(self, *args):
+        """คำนวนค่า BMI"""
         try:
             weight = float(self.weight.text)
             hhh = float(self.hhh.text)
@@ -200,6 +213,7 @@ class page1(GridLayout):
             result1.open()
 
     def calree(self, *args):
+        """คำนวนค่า REE"""
         try:
             if self.sex.text == "male":
                 weight = float(self.weight.text)
@@ -229,6 +243,7 @@ class page1(GridLayout):
             result1.open()
             
     def caltdee1(self, *args):
+        """คำนวนสำหรับคนออกกำลังกายน้อยหรือว่าไม่ออกกำลังกายเลย"""
         try:
             if self.sex.text == "male":
                 weight = float(self.weight.text)
@@ -258,6 +273,7 @@ class page1(GridLayout):
             result1.open()
     
     def caltdee2(self, *args):
+        """ออกกำลังกาย 1 - 2 ครั้งต่อสัปดาห์"""
         try:
             if self.sex.text == "male":
                 weight = float(self.weight.text)
@@ -287,6 +303,7 @@ class page1(GridLayout):
             result1.open()
 
     def caltdee3(self, *args):
+        """ออกกำลังกาย 3 - 4 ครั้งต่อสัปดาห์"""
         try:
             if self.sex.text == "male":
                 weight = float(self.weight.text)
@@ -316,6 +333,7 @@ class page1(GridLayout):
             result1.open()
 
     def caltdee4(self, *args):
+        """ออกกำลังกาย 5 - 6 ครั้งต่อสัปดาห์"""
         try:
             if self.sex.text == "male":
                 weight = float(self.weight.text)
@@ -345,6 +363,7 @@ class page1(GridLayout):
             result1.open()
 
     def caltdee5(self, *args):
+        """ออกกำลังกายทุกวัน"""
         try:
             if self.sex.text == "male":
                 weight = float(self.weight.text)
