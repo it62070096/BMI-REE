@@ -119,12 +119,14 @@ class page1(GridLayout):
         self.graph = Button(text="Graph BMI", font_size=20, size=(100, 50), pos=(1300, 40), background_color=(3.0,1.0,1.0,1.0))
         self.add_widget(self.graph)
         self.suggest = Button(text="คำแนะนำ", font_size=25, size=(100, 50), pos=(700, 40), background_color=(3.0,1.0,1.0,1.0))
+        self.points = Button(text="เกณฑ์ BMI",font_size=25, size=(100, 50), pos=(900, 40), background_color=(3.0,1.0,1.0,1.0))
         self.add_widget(self.suggest)
         self.back.bind(on_press=self.change2)
         self.bmi.bind(on_press=self.calbmi)
         self.ree.bind(on_press=self.change3)
         self.graph.bind(on_press=self.plotgraph)
         self.suggest.bind(on_press=self.sug)
+        self.add_widget(self.points)
 
     def page3(self, *args):
         """หน้าเลือกคำนวนว่าจะให้แสดงผลค่าแค่ REE อย่างเดียวหรือต้องการคำนวนค่า TDEE"""
@@ -442,6 +444,11 @@ class page1(GridLayout):
         result1 = Popup(title="Suggest", content=Label(text="BMI คือ อัตราส่วนระหว่างน้ำหนักต่อส่วนสูง ที่ใช้บอกว่าอ้วนหรือผอม \n\nREE คือ ค่าพลังงานที่ต้องการในขณะที่ร่างกายพัก" \
             +"\n\nTDEE คือ ค่าพลังที่ต้องการทั้งหมดใน 1 วันโดยรวมพลังงานที่ทำกิจกรรมต่างๆ", font_size=27, size=(50, 100)), \
             size_hint_y=None, size_hint_x=None, size=(750,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
+        result1.open()
+        
+    def poi(self, *args):
+        """เกณฑ์ BMI"""
+        result1 = Popup(title="BMI", content=Image(source='BMI.png',), size_hint=(None, None), size=(600, 500))
         result1.open()
 
 class test(App):
