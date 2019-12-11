@@ -394,7 +394,47 @@ class page1(GridLayout):
             result1 = Popup(title="REE", content=Label(text="ERROR", size=(100, 200)), size_hint_y=None, size_hint_x=None,\
                 size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
             result1.open()
-  
+
+    def plotgraph(self, *args):
+        """ตัวแสดงกราฟค่าเฉลี่ย BMI ของคนทั่วไปแบ่งตามเพศว่าผู้ใช่น้อยกว่าหรือมากกว่าเกณฑ์คนทั่วไป"""
+        try:
+            if self.sex.text == "male":
+                weight = float(self.weight.text)
+                hhh = float(self.hhh.text)
+                result = weight/((hhh/100)**2)
+                objects = ('Average', 'Your BMI')
+                y_pos = np.arange(len(objects))
+                performance = [23.1,result]
+                plt.bar(y_pos, performance, align='center', alpha=0.5)
+                plt.xticks(y_pos, objects)
+                plt.ylabel('BMI')
+                plt.title('Graph BMI')
+                plt.savefig('test.png')
+                result1 = Popup(title='Graph BMI', content=Image(source='test.png'), size_hint=(None, None), size=(400, 400))
+                result1.open()
+            elif self.sex.text == "female":
+                weight = float(self.weight.text)
+                hhh = float(self.hhh.text)
+                result = weight/((hhh/100)**2)
+                objects = ('Average', 'Your BMI')
+                y_pos = np.arange(len(objects))
+                performance = [24.4,result]
+                plt.bar(y_pos, performance, align='center', alpha=0.5)
+                plt.xticks(y_pos, objects)
+                plt.ylabel('BMI')
+                plt.title('Graph BMI')
+                plt.savefig('test.png')
+                result1 = Popup(title='Graph BMI', content=Image(source='test.png'), size_hint=(None, None), size=(400, 400))
+                result1.open()
+            else:
+                result1 = Popup(title="BMI", content=Label(text="ERROR", size=(100, 200)), size_hint_y=None, size_hint_x=None,\
+                    size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
+                result1.open()
+        except:
+            result1 = Popup(title="REE", content=Label(text="ERROR", size=(100, 200)), size_hint_y=None, size_hint_x=None,\
+                size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
+            result1.open()
+
     def sug(self, *args):
         """หน้าต่างคำแนะนำอธิบายว่าแต่ละค่าคืออะไร"""
         result1 = Popup(title="Suggest", content=Label(text="BMI คือ อัตราส่วนระหว่างน้ำหนักต่อส่วนสูง ที่ใช้บอกว่าอ้วนหรือผอม \n\nREE คือ ค่าพลังงานที่ต้องการในขณะที่ร่างกายพัก" \
