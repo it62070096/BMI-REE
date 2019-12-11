@@ -110,7 +110,7 @@ class page1(GridLayout):
         self.add_widget(self.name)
         self.bmi = Button(text="BMI", size=(300,150), pos=(400,300), background_color=(3.0,1.0,1.0,1.0))
         self.add_widget(self.bmi)
-        self.ree = Button(text="REE", size=(300,150), pos=(820, 300), background_color=(3.0,1.0,1.0,1.0))
+        self.ree = Button(text="REE & TDEE", size=(300,150), pos=(820, 300), background_color=(3.0,1.0,1.0,1.0))
         self.add_widget(self.ree)
         self.back = Button(text="Back", font_size=30, size=(100,50), pos=(100, 40), background_color=(3.0,1.0,1.0,1.0))
         self.add_widget(self.back)
@@ -126,7 +126,7 @@ class page1(GridLayout):
 
     def page3(self, *args):
         """หน้าเลือกคำนวนว่าจะให้แสดงผลค่าแค่ REE อย่างเดียวหรือต้องการคำนวนค่า TDEE"""
-        self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
+        self.name = Label(text="REE & TDEE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
         self.add_widget(self.name)
         self.ree2 = Button(text="REE only", size=(300,150), pos=(400,300), background_color=(3.0,1.0,1.0,1.0))
         self.add_widget(self.ree2)
@@ -140,7 +140,7 @@ class page1(GridLayout):
 
     def page4(self):
         """หน้าคำนวน TDEE ตามเกณฑ์การออกกำลังกาย"""
-        self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
+        self.name = Label(text="REE & TDEE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
         self.add_widget(self.name)
         self.name2 = Label(text="ความถี่การออกกำลังกาย", font_size=50, pos=(720,500), color=(0.9, 0.3, 0.2, 1.0))
         self.add_widget(self.name2)
