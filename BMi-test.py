@@ -120,7 +120,7 @@ class page1(GridLayout):
         self.add_widget(self.suggest)
         self.back.bind(on_press=self.change2)
         self.bmi.bind(on_press=self.calbmi)
-        self.ree.bind(on_press=self.page3)
+        self.ree.bind(on_press=self.change3)
         self.graph.bind(on_press=self.plotgraph)
         self.suggest.bind(on_press=self.sug)
 
