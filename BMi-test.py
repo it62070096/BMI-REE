@@ -21,7 +21,7 @@ Builder.load_string('''
 <Label>:
     font_size: 50
     color: 0,0,0,1
-    font_name: "angsa.ttf"
+    font_name: "FC Ekaluck Bold ver 1.01.ttf"
 <TextInput>:
     font_size: 30
     font_name: "angsa.ttf"
@@ -114,12 +114,15 @@ class page1(GridLayout):
         self.add_widget(self.ree)
         self.back = Button(text="Back", font_size=30, size=(100,50), pos=(100, 40), background_color=(3.0,1.0,1.0,1.0))
         self.add_widget(self.back)
-        self.graph = Button(text="Graph BMI", font_size=25, size=(100, 50), pos=(1300, 40), background_color=(3.0,1.0,1.0,1.0))
+        self.graph = Button(text="Graph BMI", font_size=20, size=(100, 50), pos=(1300, 40), background_color=(3.0,1.0,1.0,1.0))
         self.add_widget(self.graph)
+        self.suggest = Button(text="คำแนะนำ", font_size=25, size=(100, 50), pos=(700, 40), background_color=(3.0,1.0,1.0,1.0))
+        self.add_widget(self.suggest)
         self.back.bind(on_press=self.change2)
         self.bmi.bind(on_press=self.calbmi)
         self.ree.bind(on_press=self.page3)
         self.graph.bind(on_press=self.plotgraph)
+        self.suggest.bind(on_press=self.sug)
 
     def page3(self, *args):
         """หน้าเลือกคำนวนว่าจะให้แสดงผลค่าแค่ REE อย่างเดียวหรือต้องการคำนวนค่า TDEE"""
@@ -178,7 +181,7 @@ class page1(GridLayout):
                         size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
                     result1.open()
                 elif 25 <= float(result) < 29.9:
-                    result1 = Popup(title="BMI", content=Label(text=result+"  น้ำหนักเกิน", size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                    result1 = Popup(title="BMI", content=Label(text=result+"  อวบ", size=(100,200)), size_hint_y=None, size_hint_x=None, \
                         size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
                     result1.open()
                 else:
@@ -195,7 +198,7 @@ class page1(GridLayout):
                         size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
                     result1.open()
                 elif 24 <= float(result) < 29.9:
-                    result1 = Popup(title="BMI", content=Label(text=result+"  น้ำหนักเกิน", size=(100,200)), size_hint_y=None, size_hint_x=None, \
+                    result1 = Popup(title="BMI", content=Label(text=result+"  อวบ", size=(100,200)), size_hint_y=None, size_hint_x=None, \
                         size=(300, 300), pos=(400, 400), title_size=20, title_color=(0,0,0,1))
                     result1.open()
                 else:
@@ -391,6 +394,13 @@ class page1(GridLayout):
             result1 = Popup(title="REE", content=Label(text="ERROR", size=(100, 200)), size_hint_y=None, size_hint_x=None,\
                 size=(300,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
             result1.open()
+  
+    def sug(self, *args):
+        """หน้าต่างคำแนะนำอธิบายว่าแต่ละค่าคืออะไร"""
+        result1 = Popup(title="Suggest", content=Label(text="BMI คือ อัตราส่วนระหว่างน้ำหนักต่อส่วนสูง ที่ใช้บอกว่าอ้วนหรือผอม \n\nREE คือ ค่าพลังงานที่ต้องการในขณะที่ร่างกายพัก" \
+            +"\n\nTDEE คือ ค่าพลังที่ต้องการทั้งหมดใน 1 วันโดยรวมพลังงานที่ทำกิจกรรมต่างๆ", font_size=27, size=(50, 100)), \
+            size_hint_y=None, size_hint_x=None, size=(750,300), pos=(400,400), title_size=20, title_color=(0,0,0,1))
+        result1.open()
             
 class test(App):
     def build(self):
