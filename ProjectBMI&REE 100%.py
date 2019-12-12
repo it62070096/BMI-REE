@@ -63,17 +63,17 @@ class page1(GridLayout):
         return self.page2()
 
     def change2(self, *args):
-        """เปลี่ยนหน้าเลือกดูค่าคำนวนกลับมาหน้ากรอกประวัติ"""
+        """เปลี่ยนหน้าเลือกดูค่าคำนวณกลับมาหน้ากรอกประวัติ"""
         self.clear_widgets()
         return self.page1()
     
     def change3(self, *args):
-        """เปลี่ยนจากหน้าเลือกดูค่าคำนวนไปหน้าการคำนวน REE กรณีที่เลือกดูคำนวน REE"""
+        """เปลี่ยนจากหน้าเลือกดูค่าคำนวณไปหน้าการคำนวน REE กรณีที่เลือกดูคำนวน REE"""
         self.clear_widgets()
         return self.page3()
 
     def change4(self, *args):
-        """เปลี่ยนไปหน้าคำนวนที่มีค่าของการคำนวน TDEE ด้วย"""
+        """เปลี่ยนไปหน้าคำนวณที่มีค่าของการคำนวน TDEE ด้วย"""
         self.clear_widgets()
         return self.page4()
 
@@ -107,7 +107,7 @@ class page1(GridLayout):
         self.add_widget(self.next)
 
     def page2(self):
-        """หน้าเลือกดูค่าคำนวนระหว่าง BMI หรือ REE"""
+        """หน้าเลือกดูค่าคำนวณระหว่าง BMI หรือ REE"""
         self.name = Label(text="BMI & REE", font_size=200, pos=(740,600), color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.name)
         self.bmi = Button(text="BMI", font_size=100, size=(300,150), pos=(430,300), background_color=(0.9,1.0,1.0,1.0))
@@ -129,7 +129,7 @@ class page1(GridLayout):
         self.add_widget(self.points)
 
     def page3(self, *args):
-        """หน้าเลือกคำนวนว่าจะให้แสดงผลค่าแค่ REE อย่างเดียวหรือต้องการคำนวนค่า TDEE"""
+        """หน้าเลือกคำนวณว่าจะให้แสดงผลค่าแค่ REE อย่างเดียวหรือต้องการคำนวนค่า TDEE"""
         self.name = Label(text="REE & TDEE", font_size=200, pos=(740,600), color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.name)
         self.ree2 = Button(text="REE only", size=(300,150), pos=(430,300), background_color=(0.9,1.0,1.0,1.0))
@@ -143,7 +143,7 @@ class page1(GridLayout):
         self.tdee.bind(on_press=self.change4)
 
     def page4(self):
-        """หน้าคำนวน TDEE ตามเกณฑ์การออกกำลังกาย"""
+        """หน้าคำนวณ TDEE ตามเกณฑ์การออกกำลังกาย"""
         self.name = Label(text="REE & TDEE", font_size=200, pos=(740,600), color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.name)
         self.name2 = Label(text="ความถี่การออกกำลังกาย", font_size=50, pos=(720,420), color=(0.9,1.0,1.0,1.0))
@@ -167,9 +167,9 @@ class page1(GridLayout):
         self.level5.bind(on_press=self.caltdee5)
         self.back3.bind(on_press=self.change5)
 
-    """Fucntion การคำนวนต่างๆ"""
+    """Fucntion การคำนวณต่างๆ"""
     def calbmi(self, *args):
-        """คำนวนค่า BMI"""
+        """คำนวณค่า BMI"""
         try:
             weight = float(self.weight.text)
             hhh = float(self.hhh.text)
@@ -220,7 +220,7 @@ class page1(GridLayout):
             result1.open()
 
     def calree(self, *args):
-        """คำนวนค่า REE"""
+        """คำนวณค่า REE"""
         try:
             if self.sex.text == "male":
                 weight = float(self.weight.text)
@@ -250,7 +250,7 @@ class page1(GridLayout):
             result1.open()
 
     def caltdee1(self, *args):
-        """คำนวนสำหรับคนออกกำลังกายน้อยหรือว่าไม่ออกกำลังกายเลย"""
+        """คำนวณสำหรับคนออกกำลังกายน้อยหรือว่าไม่ออกกำลังกายเลย"""
         try:
             if self.sex.text == "male":
                 weight = float(self.weight.text)
@@ -447,7 +447,7 @@ class page1(GridLayout):
         result1.open()
         
     def poi(self, *args):
-        """เกณฑ์ BMI"""
+        """ตารางน้ำหนักและส่วนสูง"""
         result1 = Popup(title="BMI", content=Image(source='BMI.png',), size_hint=(None, None), size=(600, 500))
         result1.open()
 
