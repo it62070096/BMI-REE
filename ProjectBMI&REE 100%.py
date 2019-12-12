@@ -16,13 +16,13 @@ Builder.load_string('''
 <GridLayout>:
     canvas.before:
         Color:
-            rgba: 0.5, 0.8, 1.0, 1.0
+            rgba: 0.4, 0.4, 1.0, 1.0
         Rectangle:
             pos: self.pos
             size: self.size
 <Label>:
     font_size: 50
-    color: 0,0,0,1
+    color: 0.9,0.9,0.9,1
     font_name: "FC Ekaluck Bold ver 1.01.ttf"
 <TextInput>:
     font_size: 30
@@ -34,7 +34,7 @@ class page1(GridLayout):
     def __init__(self):
         """หน้าแรกของโปรแกรมเป็นส่วนของการกรอกประวัติส่วนตัว"""
         super().__init__()
-        self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
+        self.name = Label(text="BMI & REE", font_size=200, pos=(740,600), color=(0.9, 1.0, 1.0, 1.0))
         self.sex = TextInput(hint_text="male/female", size=(300,50), pos=(645,450))
         self.sextext = Label(text="เพศ", font_size=35, pos=(546, 430))
         self.age = TextInput(size=(300,50), pos=(645, 380))
@@ -43,7 +43,7 @@ class page1(GridLayout):
         self.weighttext = Label(text="น้ำหนัก", font_size=35, pos=(530, 290))
         self.hhh = TextInput(hint_text="cm.", size=(300,50), pos=(645, 240))
         self.hhhtext = Label(text="ส่วนสูง", font_size=35, pos=(530, 220))
-        self.next = Button(text="Next", font_size=30, background_color=(3.0,1.0,1.0,1.0), size=(100,50), pos=(1300,40))
+        self.next = Button(text="Next", font_size=30, background_color=(0.9,1.0,1.0,1.0), size=(100,50), pos=(1300,40))
         self.next.bind(on_press=self.change1)
         self.add_widget(self.name)
         self.add_widget(self.sex)
@@ -84,7 +84,7 @@ class page1(GridLayout):
 
     def page1(self):
         """หน้ากรอกประวัติส่วนตัว"""
-        self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
+        self.name = Label(text="BMI & REE", font_size=200, pos=(740,600), color=(0.9,1.0,1.0,1.0))
         self.sex = TextInput(hint_text="male/female", size=(300,50), pos=(645,450))
         self.sextext = Label(text="เพศ", font_size=35, pos=(546, 430))
         self.age = TextInput(size=(300,50), pos=(645, 380))
@@ -93,7 +93,7 @@ class page1(GridLayout):
         self.weighttext = Label(text="น้ำหนัก", font_size=35, pos=(530, 290))
         self.hhh = TextInput(hint_text="cm.", size=(300,50), pos=(645, 240))
         self.hhhtext = Label(text="ส่วนสูง", font_size=35, pos=(530, 220))
-        self.next = Button(text="Next", font_size=30, size=(100,50), pos=(1300,40), background_color=(3.0,1.0,1.0,1.0))
+        self.next = Button(text="Next", font_size=30, size=(100,50), pos=(1300,40), background_color=(0.9,1.0,1.0,1.0))
         self.next.bind(on_press=self.change1)
         self.add_widget(self.name)
         self.add_widget(self.sex)
@@ -108,18 +108,18 @@ class page1(GridLayout):
 
     def page2(self):
         """หน้าเลือกดูค่าคำนวนระหว่าง BMI หรือ REE"""
-        self.name = Label(text="BMI & REE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
+        self.name = Label(text="BMI & REE", font_size=200, pos=(740,600), color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.name)
-        self.bmi = Button(text="BMI", size=(300,150), pos=(400,300), background_color=(3.0,1.0,1.0,1.0))
+        self.bmi = Button(text="BMI", font_size=100, size=(300,150), pos=(430,300), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.bmi)
-        self.ree = Button(text="REE & TDEE", size=(300,150), pos=(820, 300), background_color=(3.0,1.0,1.0,1.0))
+        self.ree = Button(text="REE & TDEE", font_size=50, size=(300,150), pos=(850, 300), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.ree)
-        self.back = Button(text="Back", font_size=30, size=(100,50), pos=(100, 40), background_color=(3.0,1.0,1.0,1.0))
+        self.back = Button(text="Back", font_size=30, size=(100,50), pos=(100, 40), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.back)
-        self.graph = Button(text="Graph BMI", font_size=20, size=(100, 50), pos=(1300, 40), background_color=(3.0,1.0,1.0,1.0))
+        self.graph = Button(text="Graph BMI", font_size=20, size=(100, 50), pos=(1300, 40), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.graph)
-        self.suggest = Button(text="คำแนะนำ", font_size=25, size=(100, 50), pos=(700, 40), background_color=(3.0,1.0,1.0,1.0))
-        self.points = Button(text="เกณฑ์ BMI",font_size=25, size=(100, 50), pos=(900, 40), background_color=(3.0,1.0,1.0,1.0))
+        self.suggest = Button(text="คำแนะนำ", font_size=25, size=(100, 50), pos=(500, 40), background_color=(0.9,1.0,1.0,1.0))
+        self.points = Button(text="ตารางน้ำหนัก",font_size=18, size=(100, 50), pos=(900, 40), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.suggest)
         self.back.bind(on_press=self.change2)
         self.bmi.bind(on_press=self.calbmi)
@@ -130,13 +130,13 @@ class page1(GridLayout):
 
     def page3(self, *args):
         """หน้าเลือกคำนวนว่าจะให้แสดงผลค่าแค่ REE อย่างเดียวหรือต้องการคำนวนค่า TDEE"""
-        self.name = Label(text="REE & TDEE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
+        self.name = Label(text="REE & TDEE", font_size=200, pos=(740,600), color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.name)
-        self.ree2 = Button(text="REE only", size=(300,150), pos=(400,300), background_color=(3.0,1.0,1.0,1.0))
+        self.ree2 = Button(text="REE only", size=(300,150), pos=(430,300), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.ree2)
-        self.tdee = Button(text="REE & TDEE", size=(300,150), pos=(820, 300), background_color=(3.0,1.0,1.0,1.0))
+        self.tdee = Button(text="REE & TDEE", size=(300,150), pos=(850, 300), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.tdee)
-        self.back2 = Button(text="Back", font_size=30, size=(100,50), pos=(100,40), background_color=(3.0,1.0,1.0,1.0))
+        self.back2 = Button(text="Back", font_size=30, size=(100,50), pos=(100,40), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.back2)
         self.back2.bind(on_press=self.change1)
         self.ree2.bind(on_press=self.calree)
@@ -144,21 +144,21 @@ class page1(GridLayout):
 
     def page4(self):
         """หน้าคำนวน TDEE ตามเกณฑ์การออกกำลังกาย"""
-        self.name = Label(text="REE & TDEE", font_size=150, pos=(720,650), color=(0.9, 0.3, 0.2, 1.0))
+        self.name = Label(text="REE & TDEE", font_size=200, pos=(740,600), color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.name)
-        self.name2 = Label(text="ความถี่การออกกำลังกาย", font_size=50, pos=(720,500), color=(0.9, 0.3, 0.2, 1.0))
+        self.name2 = Label(text="ความถี่การออกกำลังกาย", font_size=50, pos=(720,420), color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.name2)
-        self.level1 = Button(text="No exercise", font_size=30, size=(150,100), pos=(200,300), background_color=(3.0,1.0,1.0,1.0))
+        self.level1 = Button(text="No exercise", font_size=30, size=(150,100), pos=(200,300), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.level1)
-        self.level2 = Button(text="1 - 2 days/week", font_size=20, size=(150,100), pos=(450,300), background_color=(3.0,1.0,1.0,1.0))
+        self.level2 = Button(text="1 - 2 days/week", font_size=20, size=(150,100), pos=(450,300), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.level2)
-        self.level3 = Button(text="3 - 4 days/week", font_size=20, size=(150,100), pos=(700,300), background_color=(3.0,1.0,1.0,1.0))
+        self.level3 = Button(text="3 - 4 days/week", font_size=20, size=(150,100), pos=(700,300), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.level3)
-        self.level4 = Button(text="5 - 6 days/week", font_size=20, size=(150,100), pos=(950,300), background_color=(3.0,1.0,1.0,1.0))
+        self.level4 = Button(text="5 - 6 days/week", font_size=20, size=(150,100), pos=(950,300), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.level4)
-        self.level5 = Button(text="Every day", font_size=30, size=(150,100), pos=(1200,300), background_color=(3.0,1.0,1.0,1.0))
+        self.level5 = Button(text="Every day", font_size=30, size=(150,100), pos=(1200,300), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.level5)
-        self.back3 = Button(text="Back", font_size=30, size=(100,50), pos=(100,40), background_color=(3.0,1.0,1.0,1.0))
+        self.back3 = Button(text="Back", font_size=30, size=(100,50), pos=(100,40), background_color=(0.9,1.0,1.0,1.0))
         self.add_widget(self.back3)
         self.level1.bind(on_press=self.caltdee1)
         self.level2.bind(on_press=self.caltdee2)
